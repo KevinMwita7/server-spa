@@ -4,6 +4,9 @@
     {% load static %}
     <link href="{% static 'bootstrap.min.css' %}" rel="stylesheet" crossorigin="anonymous">
     <title>{% block title %}Demo app{% endblock %}</title>
+    <script type="module">
+      import hotwiredTurbo from 'https://cdn.skypack.dev/@hotwired/turbo';
+    </script>
 </head>
 
 <body>
