@@ -16,7 +16,7 @@
           <nav class="py-2 bg-body-tertiary border-bottom">
               <div class="container d-flex flex-wrap">
                 <ul class="nav me-auto">
-                  <li class="nav-item"><a href="/" class="nav-link link-body-emphasis px-2 text-primary" aria-current="page">Home</a></li>
+                  <li class="nav-item"><a href="/" class="nav-link link-body-emphasis px-2">Home</a></li>
                   <li class="nav-item"><a href="/pricing" class="nav-link link-body-emphasis px-2">Pricing</a></li>
                   <li class="nav-item"><a href="/faq" class="nav-link link-body-emphasis px-2">FAQs</a></li>
                 </ul>
@@ -34,11 +34,36 @@
       </div>
 
       <script>
+        // Attach the x-requested-with header to all requests made by Turbo
         document.addEventListener("turbo:before-fetch-request", event => {
             event.preventDefault();
             event.detail.fetchOptions.headers["X-Requested-With"] = 'XMLHttpRequest';
             event.detail.resume();
         });
+      </script>
+
+      <script>
+        // Update the active nav link
+        const activeNavLink = document.querySelector(`a[href='${window.location.pathname}']`);
+        activeNavLink.classList.add("text-primary");
+        activeNavLink.classList.remove("link-body-emphasis");
+        activeNavLink.setAttribute("aria-current", "page");
+
+        // Attach event listeners to update active nav link on navigation
+        document.querySelectorAll("nav li a").forEach(el => {
+          el.addEventListener("click", (e) => {
+            // Remove active class from previously active link
+            const prev = document.querySelector("nav li a.text-primary");
+            prev.classList.remove("text-primary");
+            prev.classList.add("link-body-emphasis");
+            prev.removeAttribute("aria-current");
+
+            // Remove active class from currently active link
+            e.target.classList.add("text-primary");
+            e.target.classList.remove("link-body-emphasis");
+            e.target.setAttribute("aria-current", "page");
+          })
+        })
       </script>
   </body>
 </html>
