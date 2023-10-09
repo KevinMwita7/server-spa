@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 # Create your views here.
 def index(request):
-    return render(request, "demo_app/index.html")
+    return render(request, "demo_app/index.html", { "template": _base_template(request) })
 
 def pricing(request):
     return render(request, "demo_app/pricing.html", { "template": _base_template(request) })
