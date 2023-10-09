@@ -5,16 +5,16 @@ def index(request):
     return render(request, "demo_app/index.html")
 
 def pricing(request):
-    return render(request, "demo_app/pricing.html", { "template": _base_template() })
+    return render(request, "demo_app/pricing.html", { "template": _base_template(request) })
 
 def faq(request):
-    return render(request, "demo_app/faq.html", { "template": _base_template() })
+    return render(request, "demo_app/faq.html", { "template": _base_template(request) })
 
 def privacy(request):
-    return render(request, "demo_app/privacy.html", { "template": _base_template() })
+    return render(request, "demo_app/privacy.html", { "template": _base_template(request) })
 
 def about(request):
-    return render(request, "demo_app/about.html", { "template": _base_template() })
+    return render(request, "demo_app/about.html", { "template": _base_template(request) })
 
 # Python has no private access modifiers. To work around this, one adds an underscore (_) before the function
 # or variable to signal to other devs that they are meant to be private. Note that they can still be accessed
