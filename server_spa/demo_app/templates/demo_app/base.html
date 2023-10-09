@@ -30,5 +30,13 @@
       <div id="content">
           {% block content %}{% endblock %}
       </div>
+
+      <script>
+        document.addEventListener("turbo:before-fetch-request", event => {
+            event.preventDefault();
+            event.detail.fetchOptions.headers["X-Requested-With"] = 'XMLHttpRequest';
+            event.detail.resume();
+        });
+      </script>
   </body>
 </html>
