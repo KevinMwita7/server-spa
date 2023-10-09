@@ -2,6 +2,14 @@
 {% block title %}Home{% endblock %} 
 {% block content %}
   <turbo-frame id="main" data-turbo-action="advance">
+    <head>
+      {% load static %}
+      <script
+        src="{% static 'bootstrap.min.js' %}"
+        crossorigin="anonymous"
+        defer
+      ></script>
+    </head>
     <div class="container">
       <div class="pricing-header p-3 pb-md-4 mx-auto">
         <h1 class="display-4 fw-normal text-body-emphasis text-center">
@@ -57,11 +65,5 @@
         </div>
       </div>
     </div>
-    {% load static %}
-    <script
-      src="{% static 'bootstrap.min.js' %}"
-      crossorigin="anonymous"
-      defer
-    ></script>
   </turbo-frame>
 {% endblock %}
