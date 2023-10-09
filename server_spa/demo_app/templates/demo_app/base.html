@@ -11,7 +11,8 @@
 
   <body>
       <!-- Header -->
-      <header>
+      <turbo-frame id="header" data-turbo-action="advance" target="main">
+        <header>
           <nav class="py-2 bg-body-tertiary border-bottom">
               <div class="container d-flex flex-wrap">
                 <ul class="nav me-auto">
@@ -25,7 +26,8 @@
                 </ul>
               </div>
             </nav>
-      </header>
+        </header>
+      </turbo-frame>
 
       <div id="content">
           {% block content %}{% endblock %}
