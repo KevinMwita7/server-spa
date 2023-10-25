@@ -45,7 +45,7 @@
 
       <script>
         // Update the active nav link
-        const activeNavLink = document.querySelector(`a[href='${window.location.pathname}']`);
+        var activeNavLink = document.querySelector(`a[href='${window.location.pathname}']`);
         activeNavLink.classList.add("text-primary");
         activeNavLink.classList.remove("link-body-emphasis");
         activeNavLink.setAttribute("aria-current", "page");
@@ -54,7 +54,7 @@
         document.querySelectorAll("nav li a").forEach(el => {
           el.addEventListener("click", (e) => {
             // Remove active class from previously active link
-            const prev = document.querySelector("nav li a.text-primary");
+            var prev = document.querySelector("nav li a.text-primary");
             prev.classList.remove("text-primary");
             prev.classList.add("link-body-emphasis");
             prev.removeAttribute("aria-current");
